@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Huhu.Models.Property>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh Sách BĐS</h2>
+
+<p> 
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Property_Code</th>
+                    <th>Property_Name</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Area date</th>
+                    <th>Bed_Room</th>
+                    <th>Bath_Room</th>
+                    <th>Price</th>
+                    <th>Installment_Rate</th>
+                    <th>Avatar</th>
+                    <th>Album</th>
+                    <th>District.District_Name</th>
+                    <th>Property_Status.Property_Status_Name</th>
+                    <th>Property_Type.Property_Type_Name</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Property_Code</th>
+                    <th>Property_Name</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Area date</th>
+                    <th>Bed_Room</th>
+                    <th>Bath_Room</th>
+                    <th>Price</th>
+                    <th>Installment_Rate</th>
+                    <th>Avatar</th>
+                    <th>Album</th>
+                    <th>District.District_Name</th>
+                    <th>Property_Status.Property_Status_Name</th>
+                    <th>Property_Type.Property_Type_Name</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property_Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bed_Room)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bath_Room)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Installment_Rate)
+                        </td>
+                        <td>
+
+                            <img src="~/Images/@item.Avatar" width="200px" />
+
+                        </td>
+                        <td>
+                            <img src="~/Images/@item.Album" width="100px" />
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.District.District_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property_Status.Property_Status_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property_Type.Property_Type_Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })|
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</table>

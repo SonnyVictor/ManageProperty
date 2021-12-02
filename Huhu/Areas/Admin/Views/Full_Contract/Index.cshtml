@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Huhu.Models.Full_Contract>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="card-body">
+    <table id="datatablesSimple">
+        <thead>
+            <tr>
+                <th>Full_Contract_Code</th>
+                <th>Customer_Name</th>
+                <th>Year_Of_Birth</th>
+                <th>SSN</th>
+                <th>Customer_Address</th>
+                <th>Mobile</th>
+                <th>Date_Of_Contract</th>
+                <th>Price</th>
+                <th>Deposit</th>
+                <th>Remain</th>
+                <th>Status</th>
+                <th>Property.Property_Code</th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Full_Contract_Code</th>
+                <th>Customer_Name</th>
+                <th>Year_Of_Birth</th>
+                <th>SSN</th>
+                <th>Customer_Address</th>
+                <th>Mobile</th>
+                <th>Date_Of_Contract</th>
+                <th>Price</th>
+                <th>Deposit</th>
+                <th>Remain</th>
+                <th>Status</th>
+                <th>Property.Property_Code</th>
+            </tr>
+        </tfoot>
+       
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Full_Contract_Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year_Of_Birth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SSN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer_Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_Of_Contract)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Deposit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remain)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property.Property_Code)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })|
+                        @Html.ActionLink("Print", "PrintFullConTrac", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+    
